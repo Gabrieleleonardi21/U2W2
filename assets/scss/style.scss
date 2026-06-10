@@ -1,0 +1,73 @@
+// Variabili tema chiaro
+$brand-primary: #0d6efd;
+$radius-base: 0.5rem;
+$shadow-card: 0 2px 8px rgba(0, 0, 0, 0.1);
+$shadow-card-hover: 0 6px 20px rgba(0, 0, 0, 0.22);
+
+// Mixin tema — va chiamato dentro il selettore target
+@mixin tema($bg, $testo, $card-bg, $bordo, $muted) {
+  background-color: $bg;
+  color: $testo;
+
+  .card {
+    background-color: $card-bg;
+    border-color: $bordo;
+
+    .card-text {
+      color: $muted;
+    }
+
+    .card-footer {
+      background-color: $card-bg;
+    }
+  }
+
+  aside .bg-light {
+    background-color: $card-bg !important; // override Bootstrap
+    border-color: $bordo;
+    color: $testo;
+  }
+
+  .modal-content {
+    background-color: $card-bg;
+    color: $testo;
+  }
+}
+
+// Tema chiaro su body
+body {
+  @include tema(
+    $bg: #fafafa,
+    $testo: #1a1a1a,
+    $card-bg: #ffffff,
+    $bordo: #e0e0e0,
+    $muted: #6c757d
+  );
+  transition: background-color 200ms ease, color 200ms ease;
+}
+
+// Tema scuro su body
+body.dark {
+  @include tema(
+    $bg: #1a1a1a,
+    $testo: #f0f0f0,
+    $card-bg: #2c2c2c,
+    $bordo: #444444,
+    $muted: #adb5bd
+  );
+}
+
+.card {
+  border-radius: $radius-base;
+  box-shadow: $shadow-card;
+  transition: box-shadow 200ms ease, transform 200ms ease;
+
+  &:hover {
+    box-shadow: $shadow-card-hover;
+    transform: translateY(-3px);
+  }
+
+  .card-title {
+    font-weight: bold;
+  }
+}
