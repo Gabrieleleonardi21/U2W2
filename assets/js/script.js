@@ -61,11 +61,39 @@ function make(tag, attrs = {}, ...children) {
   return el;
 }
 
+function makeModal(p) {
+  const modalId = `modal-prodotto-${p.id}`;
+
+  const titolo = make('h5', { class: 'modal-title' });
+  titolo.textContent = p.nome;
+  const btnClose = make('button', { class: 'btn-close', 'data-bs-dismiss': 'modal' });
+  const header = make('div', { class: 'modal-header' }, titolo, btnClose);
+
+  const img = make('img', { src: p.img, alt: p.nome, class: 'img-fluid mb-3' });
+  const desc = make('p', {});
+  desc.textContent = p.descrizione;
+  const prezzo = make('p', { class: 'fw-bold fs-4 m-0' });
+  prezzo.textContent = `€ ${p.prezzo}`;
+  const body = make('div', { class: 'modal-body' }, img, desc, prezzo);
+
+  const btnChiudi = make('button', { type: 'button', class: 'btn btn-secondary', 'data-bs-dismiss': 'modal' });
+  btnChiudi.textContent = 'Chiudi';
+  const btnCarrello = make('button', { type: 'button', class: 'btn btn-success' });
+  btnCarrello.textContent = 'Aggiungi al carrello';
+  const footer = make('div', { class: 'modal-footer' }, btnChiudi, btnCarrello);
+
+  const content = make('div', { class: 'modal-content' }, header, body, footer);
+  const dialog  = make('div', { class: 'modal-dialog' }, content);
+  return          make('div', { class: 'modal fade', id: modalId, tabindex: '-1' }, dialog);
+}
+
 function renderProdotti(lista) {
   const contenitore = document.getElementById('contenitore-prodotti');
   contenitore.textContent = '';
 
   lista.map(p => {
+    const modalId = `modal-prodotto-${p.id}`;
+
     const img    = make('img', { src: p.img, alt: p.nome, class: 'card-img-top' });
 
     const titolo = make('h5', { class: 'card-title' });
@@ -78,8 +106,13 @@ function renderProdotti(lista) {
     prezzo.textContent = `€ ${p.prezzo}`;
 
     const cardBody = make('div', { class: 'card-body' }, titolo, testo, prezzo);
-    const card     = make('div', { class: `card h-100 ${p.categoria}` }, img, cardBody);
-    return           make('article', { class: 'col-12 col-sm-6 col-xl-4 mb-3' }, card);
+
+    const btnDettagli = make('button', { type: 'button', class: 'btn btn-primary w-100', 'data-bs-toggle': 'modal', 'data-bs-target': `#${modalId}` });
+    btnDettagli.textContent = 'Dettagli';
+    const cardFooter = make('div', { class: 'card-footer bg-white border-0' }, btnDettagli);
+
+    const card = make('div', { class: `card h-100 ${p.categoria}` }, img, cardBody, cardFooter);
+    return        make('article', { class: 'col-12 col-sm-6 col-xl-4 mb-3' }, card);
   }).forEach(a => contenitore.appendChild(a));
 }
 
@@ -92,4 +125,18 @@ toggle.addEventListener('click', () => {
     : 'Tema scuro';
 });
 
+const filtri = document.querySelectorAll('[data-categoria]');
+
+filtri.forEach(btn => {
+  btn.addEventListener('click', () => {
+    filtri.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    const cat = btn.dataset.categoria;
+    const filtrati = cat === 'tutti' ? prodotti : prodotti.filter(p => p.categoria === cat);
+    renderProdotti(filtrati);
+  });
+});
+
 renderProdotti(prodotti);
+prodotti.forEach(p => document.body.appendChild(makeModal(p)));
