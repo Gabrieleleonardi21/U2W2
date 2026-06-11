@@ -1,5 +1,6 @@
 // Variabili tema chiaro
-$brand-primary: #0d6efd;
+$brand-primary: hsl(150, 60%, 30%);
+$brand-primary-dark: darken($brand-primary, 15%);
 $radius-base: 0.5rem;
 $shadow-card: 0 2px 8px rgba(0, 0, 0, 0.1);
 $shadow-card-hover: 0 6px 20px rgba(0, 0, 0, 0.22);
@@ -43,7 +44,9 @@ body {
     $bordo: #e0e0e0,
     $muted: #6c757d
   );
-  transition: background-color 200ms ease, color 200ms ease;
+  transition:
+    background-color 200ms ease,
+    color 200ms ease;
 }
 
 // Tema scuro su body
@@ -55,12 +58,64 @@ body.dark {
     $bordo: #444444,
     $muted: #adb5bd
   );
+
+  .navbar {
+    background-color: $brand-primary-dark !important;
+  }
 }
+
+// Override Bootstrap: classi che usano il colore primario brand
+.btn-primary,
+.bg-primary,
+.navbar.bg-primary {
+  background-color: $brand-primary !important;
+  border-color: $brand-primary !important;
+}
+
+.text-primary {
+  color: $brand-primary !important;
+}
+
+.btn-primary:hover {
+  background-color: darken($brand-primary, 10%) !important;
+  border-color: darken($brand-primary, 10%) !important;
+}
+
+.btn-outline-primary {
+  color: $brand-primary;
+  border-color: $brand-primary;
+
+  &:hover,
+  &.active {
+    background-color: $brand-primary !important;
+    border-color: $brand-primary !important;
+    color: #fff !important;
+  }
+}
+
+// Mixin card con accento cromatico personalizzato
+@mixin card-prodotto($accent) {
+  border-top: 4px solid $accent;
+
+  .card-title {
+    color: $accent;
+  }
+
+  &:hover {
+    box-shadow: 0 6px 18px rgba($accent, 0.3);
+  }
+}
+
+.card.scarpe       { @include card-prodotto(hsl(220, 60%, 40%)); }
+.card.abbigliamento { @include card-prodotto(hsl(0, 70%, 50%)); }
+.card.accessori    { @include card-prodotto(hsl(45, 90%, 50%)); }
 
 .card {
   border-radius: $radius-base;
   box-shadow: $shadow-card;
-  transition: box-shadow 200ms ease, transform 200ms ease;
+  transition:
+    box-shadow 200ms ease,
+    transform 200ms ease;
 
   &:hover {
     box-shadow: $shadow-card-hover;
