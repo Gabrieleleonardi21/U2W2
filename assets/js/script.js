@@ -5,7 +5,7 @@ const prodotti = [
     prezzo: 89.00,
     categoria: 'scarpe',
     descrizione: 'Scarpa da corsa leggera e traspirante, ideale per allenamenti quotidiani.',
-    img: 'https://placehold.co/300x180?text=Sneaker+Run',
+    img: 'https://images.unsplash.com/flagged/photo-1556637640-2c80d3201be8?w=640&fit=crop&auto=format&q=80',
   },
   {
     id: 2,
@@ -13,7 +13,7 @@ const prodotti = [
     prezzo: 120.00,
     categoria: 'scarpe',
     descrizione: 'Stivaletto in pelle sintetica, perfetto per la città in ogni stagione.',
-    img: 'https://placehold.co/300x180?text=Stivaletto+Urban',
+    img: 'https://images.unsplash.com/photo-1732708862072-d2f9e578e531?w=640&fit=crop&auto=format&q=80',
   },
   {
     id: 3,
@@ -21,7 +21,7 @@ const prodotti = [
     prezzo: 19.00,
     categoria: 'abbigliamento',
     descrizione: 'Maglia in cotone 100% disponibile in vari colori, comoda per ogni occasione.',
-    img: 'https://placehold.co/300x180?text=T-shirt+Basic',
+    img: 'https://images.unsplash.com/photo-1564689801188-d00bee231f4b?w=640&fit=crop&auto=format&q=80',
   },
   {
     id: 4,
@@ -29,7 +29,7 @@ const prodotti = [
     prezzo: 65.00,
     categoria: 'abbigliamento',
     descrizione: 'Giacca in denim classica, vestibilità relaxed e ottima per le mezze stagioni.',
-    img: 'https://placehold.co/300x180?text=Giacca+Denim',
+    img: 'https://images.unsplash.com/photo-1562068391-2ccb2c3e7c2b?w=640&fit=crop&auto=format&q=80',
   },
   {
     id: 5,
@@ -37,7 +37,7 @@ const prodotti = [
     prezzo: 49.00,
     categoria: 'accessori',
     descrizione: 'Borsa versatile in ecopelle, ideale per l\'uso quotidiano in città.',
-    img: 'https://placehold.co/300x180?text=Borsa+City',
+    img: 'https://images.unsplash.com/photo-1593267891718-17abae428da0?w=640&fit=crop&auto=format&q=80',
   },
   {
     id: 6,
@@ -45,7 +45,7 @@ const prodotti = [
     prezzo: 28.00,
     categoria: 'accessori',
     descrizione: 'Cintura in cuoio intrecciato, disponibile in marrone e nero.',
-    img: 'https://placehold.co/300x180?text=Cintura+Intrecciata',
+    img: 'https://images.unsplash.com/photo-1614676471928-2ed0ad1061a4?w=640&fit=crop&auto=format&q=80',
   },
   {
     id: 7,
@@ -53,7 +53,7 @@ const prodotti = [
     prezzo: 45.00,
     categoria: 'scarpe',
     descrizione: 'Sandalo estivo con suola antiscivolo, perfetto per spiaggia e città.',
-    img: 'https://placehold.co/300x180?text=Sandalo+Mare',
+    img: 'https://images.unsplash.com/photo-1515965230482-0b9b46fbee14?w=640&fit=crop&auto=format&q=80',
   },
   {
     id: 8,
@@ -61,7 +61,7 @@ const prodotti = [
     prezzo: 95.00,
     categoria: 'scarpe',
     descrizione: 'Mocassino in vera pelle con suola in gomma, elegante e confortevole.',
-    img: 'https://placehold.co/300x180?text=Mocassino+Classic',
+    img: 'https://images.unsplash.com/photo-1426649397221-b62c5a7824ee?w=640&fit=crop&auto=format&q=80',
   },
   {
     id: 9,
@@ -69,7 +69,7 @@ const prodotti = [
     prezzo: 42.00,
     categoria: 'abbigliamento',
     descrizione: 'Felpa unisex in cotone garzato, calda e morbida per i mesi freddi.',
-    img: 'https://placehold.co/300x180?text=Felpa+Cappuccio',
+    img: 'https://images.unsplash.com/photo-1677659493358-331bc9e0e1ad?w=640&fit=crop&auto=format&q=80',
   },
   {
     id: 10,
@@ -77,7 +77,7 @@ const prodotti = [
     prezzo: 55.00,
     categoria: 'abbigliamento',
     descrizione: 'Pantaloni chino slim fit in cotone stretch, versatili per ogni occasione.',
-    img: 'https://placehold.co/300x180?text=Pantaloni+Chino',
+    img: 'https://images.unsplash.com/photo-1622131527801-78b144aa7f2c?w=640&fit=crop&auto=format&q=80',
   },
   {
     id: 11,
@@ -85,7 +85,7 @@ const prodotti = [
     prezzo: 69.00,
     categoria: 'accessori',
     descrizione: 'Zaino capiente con scomparto laptop fino a 15", ideale per lavoro e studio.',
-    img: 'https://placehold.co/300x180?text=Zaino+Urbano',
+    img: 'https://images.unsplash.com/photo-1655303219938-3a771279c801?w=640&fit=crop&auto=format&q=80',
   },
   {
     id: 12,
@@ -93,7 +93,7 @@ const prodotti = [
     prezzo: 35.00,
     categoria: 'accessori',
     descrizione: 'Occhiali polarizzati con montatura leggera, protezione UV 400.',
-    img: 'https://placehold.co/300x180?text=Occhiali+Sole',
+    img: 'https://images.unsplash.com/photo-1649619611137-931c101fbb39?w=640&fit=crop&auto=format&q=80',
   },
 ];
 
